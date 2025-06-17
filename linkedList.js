@@ -1,22 +1,26 @@
 
 
 class LinkedList {
+
   constructor(head) {
     this.head= new Node(head);
     this.tail = head;
+    this.size = 1;
     
     
     
   }
 append(value) {
-    this.head.nextNode = new Node(value);
-    this.head = this.head.nextNode;
+    this.tail.nextNode = new Node(value);
+    this.tail = this.tail.nextNode;
+    this.size ++;
   }
 
   prepend(value){
-    let newTail = new Node(value);
-    newTail.nextNode = this.tail;
-    this.tail = newTail;
+    let newHead = new Node(value);
+    newHead.nextNode = this.tail;
+    this.head = newHead;
+    this.size ++;
   }
 
   }
