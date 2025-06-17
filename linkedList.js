@@ -72,6 +72,19 @@ append(value) {
     return undefined
   }
 
+  insertValue(value, index){
+    let nodeToMove = this.at(index-1);
+    let newNode = new Node(value);
+    newNode.nextNode = nodeToMove.nextNode
+    nodeToMove.nextNode = newNode;
+    this.size ++;
+  }
+
+  removeAt(index){
+    let modifyNode = this.at(index-1);
+    modifyNode.nextNode = modifyNode.nextNode.nextNode;
+    this.size --;
+  }
   }
 
   function printHead(linkedList) {
