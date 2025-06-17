@@ -39,11 +39,13 @@ append(value) {
 
   toString(){
     let currentNode=  this.head;
+    let string = "";
     for (let i = 0; i < this.size-1; i++) {
-      console.log(`(${currentNode.data})->`)
+      string += (`(${currentNode.data}) -> `)
       currentNode = currentNode.nextNode
     }
-      console.log(`(${currentNode.data})`)
+    string +=(`(${currentNode.data})`)
+    return string
 
   }
   contains(value){
