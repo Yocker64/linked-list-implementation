@@ -2,21 +2,32 @@
 
 class LinkedList {
 
-  constructor(head) {
-    this.head= new Node(head);
-    this.tail = this.head;
-    this.size = 1;
-    
-    
-    
+  constructor() {
+    this.head= undefined
+    this.tail = undefined
+    this.size = 0;
   }
 append(value) {
+  if (this.size === 0) {
+    this.tail = new Node(value);
+    this.head = this.tail
+    this.size ++;
+
+    return
+  }
     this.tail.nextNode = new Node(value);
     this.tail = this.tail.nextNode;
     this.size ++;
   }
 
   prepend(value){
+    if (this.size === 0) {
+    this.tail = new Node(value);
+    this.head = this.tail
+    this.size ++;
+
+    return
+  }
     let newHead = new Node(value);
     newHead.nextNode = this.tail;
     this.head = newHead;
@@ -75,6 +86,14 @@ append(value) {
   }
 
   insertValue(value, index){
+    if (index === 0) {
+    let newNode = new Node(value);
+      newNode.nextNode = this.head;
+      this.head = newNode
+    this.size ++;
+
+      return
+    }
     let nodeToMove = this.at(index-1);
     let newNode = new Node(value);
     newNode.nextNode = nodeToMove.nextNode
